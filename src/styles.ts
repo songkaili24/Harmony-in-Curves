@@ -35,7 +35,7 @@ export const Container = styled('div')<any>`
   }
 
   @media only screen and (max-width: 450px) {
-    padding: 100px 16px;
+    padding: 0 16px;
     width: auto;
   }
 `;
