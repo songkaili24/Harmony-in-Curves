@@ -1,116 +1,95 @@
-# Candy Machine v3 UI Introduction
-Hi! This is a production ready **Candy Machine V3** responsive UI which can be easily customized.
-Major features of the CMv3 such as Candy Guards are implemented & auto-detected.
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 
-#### IMPORTANT: Use of Sugar CLI with this UI
-To deploy a Candy Machine using Sugar, be sure to use the version that creates account version v1 Candy Machines. The latest sugar version as of updating this readME (29/04/2023) that supports account version 1 CMs, and this UI is [sugar v2.0.0-beta.2](https://github.com/metaplex-foundation/sugar/releases/tag/v2.0.0-beta.2).
+# Deploy your own Candy Machine easily
+This repository is for Candy Machine V3, Account Version V2. (This is what you have when using the latest sugar version to create the candy machine)
 
-Will look into adding functionality for CMv3 Account version v2 (which supports pNFT, royalty enforcement).
+Visible to the user:
 
-### Preview
-![Desktop preview of Candy Machine V3](https://cdn.discordapp.com/attachments/1039648022516215919/1072170298398474250/cmv3.png)
-— Desktop preview.
+- Mint Page:
+![image](https://github.com/MarkSackerberg/umi-cmv3-ui-inofficial/assets/93528482/0ac70bda-5eee-4f6a-8035-ccf127fffc80)
 
-Preview it live [here](https://wearekite-cmv3-ui.vercel.app/).
+- Successful mint confirmation:
+![image](https://github.com/MarkSackerberg/umi-cmv3-ui-inofficial/assets/93528482/7e671345-914a-4d22-bf9f-763006a66560) 
 
-### Deploy with Vercel *(recommended)*
-Vercel is great to host your Candy Machine on, deploy it instantly by clicking the button below.
+Visible to the admin:
+![image](https://github.com/MarkSackerberg/umi-cmv3-ui-inofficial/assets/93528482/560f29bd-3d25-411a-b099-9609820ca223)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwearekite%2Fcandy-machine-v3-ui&env=NEXT_PUBLIC_SOLANA_NETWORK,NEXT_PUBLIC_RPC_HOST,NEXT_PUBLIC_CANDY_MACHINE_ID,NEXT_PUBLIC_COLLECTION_IMAGE_URL,NEXT_PUBLIC_COLLECTION_TITLE,NEXT_PUBLIC_COLLECTION_DESCRIPTION,NEXT_PUBLIC_TOKEN_TYPE,NEXT_PUBLIC_WEBSITE_URL,NEXT_PUBLIC_TWITTER_URL,NEXT_PUBLIC_DISCORD_URL&envDescription=For%20documentation%20about%20the%20ENV%20usage%2C%20click%20the%20link%20below&envLink=https%3A%2F%2Fgithub.com%2Fwearekite%2Fcandy-machine-v3-ui%23env-variables&project-name=my-kite-cmv3&repository-name=my-kite-cmv3&demo-title=Candy%20Machine%20UI%20for%20CMv3&demo-description=An%20all-in-one%2C%20production-ready%20candy%20machine%20v3%20UI%20with%20easy%20customization.&demo-url=https%3A%2F%2Fwearekite-cmv3-ui.vercel.app%2F&demo-image=https%3A%2F%2Fcamo.githubusercontent.com%2F0e9d50b8c682fa584d11a6edd89189f7a081e99d9cb4a284207d0bd927a31f73%2F68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313033393634383032323531363231353931392f313037323137303239383339383437343235302f636d76332e706e67)
+# What does this repo support?
+You can use this repo to deploy your own candy machine UI. 
+- It supports multiple candy machine groups, but also just using a default group
+- It creates a Lookup table for you to allow more active guards at the same time
+- The initializer shows you the merkle root for your groups
+- The users see NFTs left, start and end countdowns, reasons for not being able to mint and more
+- Combining most of these guards is possible since we are lookup tables. For example using `allowlist`,`nftBurn`, `nftPayment`, `solPayment`, `startDate` and `endDate`
+- For larger allowlists this UI will automatically split the mint into two transactions to avoid hitting the transaction size limit
+- It supports most of the existing guards:
+  - `addressGate`
+  - `allocation`
+  - `allowlist`
+  - `endDate`
+  - `freezeSolPayment`
+  - `freezeTokenPayment`
+  - `mintLimit`
+  - `nftBurn`
+  - `nftGate`
+  - `nftPayment`
+  - `redeemedAmount`
+  - `solPayment`
+  - `startDate`
+  - `token2022Payment`
+  - `tokenBurn`
+  - `tokenGate`
+  - `tokenPayment`
+## Multimint
+There is also a branch which allwows the user to mint multiple NFTs at the same time:
+![image](https://github.com/MarkSackerberg/umi-cmv3-ui-inofficial/assets/93528482/0deada11-73c5-4b81-967d-6313b78739a5)
 
-### Implemented features
-- [x] Responsive UI
-- [x] Single Mint UI
-- [x] Multi Mint UI
-- [x] Start Time Countdown
-- [x] Preview Minted NFTs
-- [x] Guards Supported
-  - [x] Start Date
-  - [x] End Date
-  - [x] Sol Payment
-  - [x] Token Payment
-  - [x] Mint Limit
-  - [x] Bot Tax
-  - [x] Token Burn
-  - [x] Token Gate
-  - [x] NFT Payment
-  - [x] NFT Burn
-  - [x] NFT Gate
-  - [x] Redeemed Amount
-  - [x] Address Gate
-  - [x] Allow List
-  - [x] Gatekeeper
+This branch also allows to deactivate that functionality when setting `NEXT_PUBLIC_MULTIMINT=false` in .env.
 
-### Multi Group 
-*For Multi-group functionality use [multi-group](https://github.com/wearekite/candy-machine-v3-ui/tree/multi-group) branch*
+Feel free to use and test it - it's just not merged into main since I am waiting for more feedback.
 
-![Desktop preview of Multi Group Functionality](https://media.discordapp.net/attachments/869952469516570694/1081582904582357094/multi-mint-groups.png)
-— Desktop preview of multi group functionality.
 
-*(PS: For optimal use, limit active/ongoing groups to 1 - button will be added automatically for each active group)*
+# How to use
+## Prerequisites
+- [pnpm](https://pnpm.io/installation) as package manager - I used 8.1.0
+- [sugar](https://docs.metaplex.com/developer-tools/sugar/guides/sugar-for-cmv3) to create your candy machine
 
-### Env Variables
-```
-NEXT_PUBLIC_SOLANA_NETWORK=mainnet/devnet
-```
-```
-NEXT_PUBLIC_RPC_HOST=networkURL
-```
-```
-NEXT_PUBLIC_CANDY_MACHINE_ID=candyMachineID
-```
-```
-optional: NEXT_PUBLIC_COLLECTION_IMAGE_URL=https://linktoyourcollectionimage.zyx
-If left blank or undefined it will default to the example image
-```
-```
-optional: NEXT_PUBLIC_COLLECTION_TITLE='Your Collection title'
-If left blank or undefined it will default to the example title
-```
-```
-optional: NEXT_PUBLIC_COLLECTION_DESCRIPTION='Your Description for the Collection.'
-If left blank or undefined it will default to the example description
-```
-```
-optional: NEXT_PUBLIC_TOKEN_TYPE='If needed, your accepted SPL token label, like e.g. USDC'
-If left blank or undefined it will default to "Token"
-```
-```
-optional: NEXT_PUBLIC_WEBSITE_URL=https://linktoyourwebsite.com
-If left blank or undefined it will default to "#"
-```
-```
-optional: NEXT_PUBLIC_TWITTER_URL=https://twitter.com/yourproject
-If left blank or undefined it will default to "#"
-```
-```
-optional: NEXT_PUBLIC_DISCORD_URL=https://discord.com/yourdiscordserver
-If left blank or undefined it will default to "#"
-```
-*If on Vercel or a similar host you need to add these as environmental variables in your project settings.*
+## How to use
+1. Clone this repo
+2. Run `pnpm install`
+3. copy the `.env.example` file to a new `.env` file and fill in the NEXT_PUBLIC_CANDY_MACHINE_ID value. You should have this value after creating your candy machine with sugar. 
+3. Run `pnpm run dev`
+4. Open your browser at `http://localhost:3000`
+5. Connect your wallet which you used to create the candy machine
+6. You should see a red `initialize` button. Click it and then click `create LUT`
+7. Copy the LUT address that you see in the green success box and paste it into the `.env` file as the value for `NEXT_PUBLIC_LUT`
+8. Add your candy machine groups to the `settings.tsx` file.  E.g. if one of your groups is called `WL` you should have an entry for it in there, too
+9. Deploy your Candy Machine e.g. to Vercel or Cloudflare Pages
 
-### Quick customization
-Want to customize the color scheme? This frontend uses 6 main colors that can be found in [globals.css](/styles/globals.css) change these values and the changes will apply globally.
-```
-:root {
-  --main-background-color: #0E0E0E;
-  --alt-background-color: #202020;
-  --white: #fff;
-  --black: #000;
-  --primary: #4E44CE;
-  --error: #D92D20;
-}
-```
+Done!
 
-### Preview alternative Candy Machine states
-![Candy Machine V3 with Start Date](https://media.discordapp.net/attachments/1039648022516215919/1072171560288399440/startdatecmv3.png)
-— Candy Machine V3 with Start Date
+### customization
+You can customize the UI by changing the code. If you just want to modify some values you can instead
+- modify `settings.tsx` to change the texts and Image. 
+  - `image` is the main image that is shown. You could change it to your project logo.
+  - `headerText` is the website header. You could change it to your project name.
+- Decide if you want to allow multiple mints by a single user at the same time and in your `.env` file set `NEXT_PUBLIC_MULTIMINT` accordingly to `true` or `false`
 
-![Candy Machine V3 with Address Gate, Allow List or other similar guards](https://cdn.discordapp.com/attachments/1039648022516215919/1072171559520833656/privatecmv3.png)
-— Candy Machine V3 with Address Gate, Allow List or other similar guards
+### Fees
+This ui has a buy me a beer feature. Each mint will transfer a very small amount (0.005) of SOL to a tip wallet. If you do not want to support me feel free to change the NEXT_PUBLIC_BUYMARKBEER variable to false. I would appreachiate it though if you leave it on. 🍻
 
-## Collaborating
-Want to collaborate and make the repo better? Feel free to submit a pull request to the main branch.
+# To do
+- Add NFT Picker of `nftBurn` and `nftPayment` guards
 
-## Feedback/Support
-If you have any feedback or need support, please submit an issue through [Github Issues](https://github.com/wearekite/candy-machine-v3-ui/issues).
+# Contact / Support
+If you need help with this repo, you can contact me. Also feel free to create an issue or a pull request.
+- [Discord](https://discordapp.com/users/marksackerberg)
+- [Twitter](https://twitter.com/MarkSackerberg)
+
+If you want to work together on projects let me know!
+
+# Disclaimer
+This is not an official project by the Metaplex team. You can use that code at your own risk. I am not responsible for any losses that you might incur by using this code.
+
+# Thank you!
+Thanks to the metaplex team for creating NFTs on Solana, Candy Machine and Umi. Special Thanks to @lorisleiva for creating Umi and being so helpful. Also thanks to @tonyboylehub !
