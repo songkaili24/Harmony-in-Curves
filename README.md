@@ -30,6 +30,7 @@ Experiment with altering constants to see their impact on the shape and pattern.
 Understand the role of each term in the equation.
 
 A * sin(a * t) and B * sin(b * t) contribute to the horizontal component.
+
 C * cos(c * t) and D * cos(d * t) affect the vertical component.
 
 # Experimentation:
