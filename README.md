@@ -1,7 +1,7 @@
 # Algorithmic Art - Mathematical Curves
 Welcome to this collection of algorithmic artworks inspired by mathematical curves. These visual compositions are generated using parametric equations, showcasing the intersection of mathematics and art.
 
-# Example Image
+# Example Images
 
 ![Image of a curve](exampleimage.png)
 
