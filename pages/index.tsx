@@ -17,7 +17,7 @@ import { ShowNft } from "../components/showNft";
 import { InitializeModal } from "../components/initializeModal";
 import { image, headerText } from "../settings";
 import { useSolanaTime } from "@/utils/SolanaTimeContext";
-import GitHubReadmeButton, { GithubReadmeButton } from "../components/readmeButton";
+import { GitHubReadmeButton } from "../components/readmeButton";
 
 const WalletMultiButtonDynamic = dynamic(
   async () =>
