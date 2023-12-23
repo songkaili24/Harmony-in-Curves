@@ -17,6 +17,7 @@ import { ShowNft } from "../components/showNft";
 import { InitializeModal } from "../components/initializeModal";
 import { image, headerText } from "../settings";
 import { useSolanaTime } from "@/utils/SolanaTimeContext";
+import GitHubReadmeButton, { GithubReadmeButton } from "../components/readmeButton";
 
 const WalletMultiButtonDynamic = dynamic(
   async () =>
@@ -240,6 +241,7 @@ export default function Home() {
                   onOpen={onShowNftOpen}
                   setCheckEligibility={setCheckEligibility}
                 />
+                <GitHubReadmeButton />
               )}
             </Stack>
           </CardBody>
