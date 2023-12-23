@@ -5,6 +5,8 @@ Welcome to this collection of algorithmic artworks inspired by mathematical curv
 
 ![Image of a curve](exampleimage.png)
 
+![Image of a curve](exampleimage2.png)
+
 # Artwork Overview
 The underlying mathematical structure of these artworks is defined by a parametric equation:
 
