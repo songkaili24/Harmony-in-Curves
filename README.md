@@ -9,6 +9,7 @@ Welcome to this collection of algorithmic artworks inspired by mathematical curv
 The underlying mathematical structure of these artworks is defined by a parametric equation:
 
 x(t) = A * sin(a * t) + B * sin(b * t)
+
 y(t) = C * cos(c * t) + D * cos(d * t)
 
 Here, t is the parameter that varies over time, and A, B, C, D, a, b, c, and d are constants influencing the shape and appearance of the curves. Feel free to explore how changing these constants affects the visual outcome of the curves.
