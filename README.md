@@ -1,6 +1,12 @@
 # Algorithmic Art - Mathematical Curves
 Welcome to this collection of algorithmic artworks inspired by mathematical curves. These visual compositions are generated using parametric equations, showcasing the intersection of mathematics and art.
 
+# Artwork Mint Site
+https://harmony-in-curves.vercel.app/
+
+# Initial Collection Size
+I have 500 artworks up for sale for 0.3 SOL each. 
+
 # Example Images
 
 ![Image of a curve](exampleimage.png)
@@ -42,6 +48,15 @@ Experiment with different sets of constants to observe how subtle changes lead t
 # Artistic Intuition:
 
 Recognize that artistic intuition may influence color choices, line thickness, or additional artistic elements.
+
+# Artist Contact Details
+
+Twitter: @songkailiweb3
+Discord: songkaili
+
+# Future Planned Collections
+
+I plan to release more algorithmic art collections in the future! Stay tuned!
 
 # A note from the creator
 
